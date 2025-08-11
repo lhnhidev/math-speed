@@ -1,58 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="screen">
-        <div class="top-section">
-            <div class="learn-link" onclick="
-                document.location.href = '../learn';
-            ">
-                <img src="contest/assets/images/turn-back.svg" class="learn-logo">
-            </div>
-            <h1>Đề thi thử tuyển sinh vào lớp 10 THPT</h1>
-        </div>
-        <div class="rules-container">
-            <h1>Thể Lệ Cuộc Thi</h1>
-            <p class="introduction">
-                Hãy đọc kỹ thể lệ cuộc thi trước khi tham gia để đảm bảo quyền lợi và tuân thủ các quy định.
-            </p>
-            <div class="rule">
-                <h2>1. Đối tượng tham gia</h2>
-                <p>Mọi học sinh cần thi tuyển sinh vào lớp 10 đều có thể tham gia</p>
-            </div>
-            <div class="rule">
-                <h2>2. Thời gian: Không quá 360 phút</h2>
-                <div class="time-input-group">
-                    <label for="timeInput">Thời gian: </label>
-                    <input type="text" class="timeInput" value="120">
-                    <span> phút (có thể chỉnh sửa)</span>
-                </div>
-            </div>
-            <div class="rule">
-                <h2>3. Cấu trúc đề thi</h2>
-                <p>- Gồm 2 phần: Trắc nghiệm lựa chọn và Tự luận 
-                    trả lời ngắn</p>
-                <p><strong>- Trắc nghiệm lựa chọn:</strong> 16 câu mỗi câu 0,25đ</p>
-                <p><strong>- Tự luận trả lời ngắn:</strong> 5 câu tổng là 6 điểm</p>
-            </div>
-            <button class="cta-button" onclick="submitData()">
-                Tôi đã hiểu và đồng ý</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathSpeed - Luyện đề</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <link rel="stylesheet" href="../index.css" />
+  </head>
+  <body>
+    <header
+      class="w-full bg-white/30 backdrop-blur-md shadow-sm flex justify-center items-center py-4 fixed top-0 left-0 right-0 z-50"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="w-36">
+          <img
+            src="../public/assets/img/logo.png"
+            alt="Logo_Math_Speed"
+            class="w-full"
+          />
         </div>
 
-        <div class="history-exam">
-            <h1>Lịch sử làm bài</h1>
-            <div class="storage-exams">
-                
-            </div>
+        <div class="flex items-center justify-center gap-14">
+          <a
+            href="../index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-house"></i>
+            Trang chủ
+          </a>
+          <a
+            href="../learn/index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-book-open-reader"></i>
+            Học Tập
+          </a>
+          <a
+            href="#"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-dumbbell"></i>
+            Luyện Đề
+          </a>
+          <a
+            href="../download/index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-download"></i>
+            Tải ứng dụng
+          </a>
         </div>
+
+        <div class="flex gap-4">
+          <button
+            class="px-5 py-2 hover:border-gray-600 transition-all bg-[white] border-gray-400 border-2 rounded-2xl font-bold text-black"
+          >
+            Đăng nhập
+          </button>
+          <button
+            class="px-5 py-2 hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2"
+          >
+            Bắt đầu
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="_breakcrumb w-full bg-[linear-gradient(90deg,rgba(165,233,214,0.6),rgba(165,233,214,0.3))]"
+    >
+      <div class="bg-[url('../public/assets/img/sub_banner_2.png')]">
+        <div
+          class="animate__animated animate__slideInDown w-full pt-[120px] pb-3 flex gap-4 items-center text-2xl uppercase font-bold justify-center"
+        >
+          <a
+            href="../index.html"
+            class="text-center text-[var(--primary-color)] hover:text-[var(--thir-color)]"
+            >Trang chủ</a
+          >
+          <span class="text-[var(--primary-color)]">|</span>
+          <p class="">Luyện đề</p>
+        </div>
+        <p class="text-center pb-7 text-lg font-bold" id="descTyping"></p>
+      </div>
     </div>
-    
-    <script src="main.js"></script>
-</body>
-</html>
 
+    <div class="w-full">
+      <div class="container mx-auto">
+        <div class="mt-10 flex flex-col lg:flex-row gap-8">
+          <!-- Left Side - Quick Info -->
+          <div class="w-full lg:w-1/3">
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+              <h3 class="text-xl font-semibold text-[#354764] mb-4">
+                Thông Tin Nhanh
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div class="bg-blue-100 p-2 rounded-full mr-3">
+                    <i class="fas fa-info-circle text-[#354764]"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">
+                      Số câu hỏi:
+                      <span class="text-[#354764]"
+                        >16 Trắc nghiệm và 5 Tự luận</span
+                      >
+                    </p>
+                    <p class="text-sm text-gray-500">
+                      Ngẫu nhiên từ ngân hàng đề thi
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-blue-100 p-2 rounded-full mr-3">
+                    <i class="fas fa-trophy text-yellow-500"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">
+                      Phần thưởng:
+                      <span class="text-[#354764]">Chứng nhận</span>
+                    </p>
+                    <p class="text-sm text-gray-500">Dành cho top cao nhất</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div class="bg-blue-100 p-2 rounded-full mr-3">
+                    <i class="fas fa-clock text-green-500"></i>
+                  </div>
+                  <div>
+                    <p class="font-medium">
+                      Thời gian:
+                      <span class="text-[#354764]">Tùy chỉnh</span>
+                    </p>
+                    <p class="text-sm text-gray-500">
+                      Linh hoạt thời gian kiểm tra
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Start Exam Button -->
+            <button
+              id="startExamBtn"
+              class="w-full bg-gradient-to-r bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white font-bold py-4 px-6 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105 mb-6"
+            >
+              <i class="fas fa-play mr-2"></i> BẮT ĐẦU THI NGAY
+            </button>
+
+            <!-- Timer Selection -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+              <h3 class="text-xl font-semibold text-[#354764] mb-4">
+                Tùy Chọn Thời Gian (không quá 360 phút)
+              </h3>
+              <div class="grid grid-cols-2 gap-3">
+                <button
+                  class="timer-option bg-blue-100 hover:bg-blue-200 text-[#354764] py-2 px-4 rounded transition"
+                >
+                  15 phút
+                </button>
+                <button
+                  class="timer-option bg-blue-100 hover:bg-blue-200 text-[#354764] py-2 px-4 rounded transition"
+                >
+                  45 phút
+                </button>
+                <button
+                  class="timer-option bg-blue-100 hover:bg-blue-200 text-[#354764] py-2 px-4 rounded transition"
+                >
+                  60 phút
+                </button>
+                <button
+                  class="timer-option bg-blue-100 hover:bg-blue-200 text-[#354764] py-2 px-4 rounded transition"
+                >
+                  120 phút
+                </button>
+              </div>
+              <div class="mt-4">
+                <button
+                  id="customTimeBtn"
+                  class="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-2 px-4 rounded transition"
+                >
+                  Tùy chỉnh thời gian
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Side - Rules and History -->
+          <div class="w-full lg:w-2/3">
+            <!-- Tabs -->
+            <div class="bg-white rounded-t-lg shadow-md">
+              <div class="flex border-b">
+                <button
+                  id="rulesTag"
+                  class="tab-btn py-3 px-6 font-medium text-[var(--primary-color)] border-b-2 border-[var(--primary-color)]"
+                >
+                  <i class="fas fa-book-open mr-2"></i>Thể Lệ Cuộc Thi
+                </button>
+                <button id="historyTag" class="tab-btn py-3 px-6 font-medium">
+                  <i class="fas fa-history mr-2"></i>Lịch Sử Làm Bài
+                </button>
+              </div>
+            </div>
+
+            <!-- Tab Contents -->
+            <div class="bg-white rounded-b-lg shadow-md p-6">
+              <!-- Rules Content -->
+              <div
+                id="rulesContent"
+                class="animate__animated opacity-0 animate__fadeIn"
+              >
+                <h3 class="text-2xl font-bold uppercase text-[#354764] mb-4">
+                  Thể lệ cuộc thi
+                </h3>
+
+                <div class="prose max-w-none">
+                  <h4 class="text-xl font-semibold mt-6 mb-3 text-[#354764]">
+                    1. Quy định chung
+                  </h4>
+                  <ul class="list-disc pl-6 space-y-2">
+                    <li>Cuộc thi dành cho tất cả học sinh có nhu cầu</li>
+                    <li>Đề thi gồm 2 phần: Trắc nghiệm và Tự luận</li>
+                    <li>
+                      Hệ thống tự động chấm điểm và hiển thị kết quả ngay sau
+                      khi hoàn thành
+                    </li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mt-6 mb-3 text-[#354764]">
+                    2. Cách tính điểm
+                  </h4>
+                  <ul class="list-disc pl-6 space-y-2">
+                    <li>Đối với Trắc nghiệm lựa chọn: 16 câu mỗi câu 0,25đ</li>
+                    <li>Đối với Tự luận trả lời ngắn: 5 câu tổng là 6đ</li>
+                  </ul>
+
+                  <h4 class="text-xl font-semibold mt-6 mb-3 text-[#354764]">
+                    3. Yêu cầu hệ thống
+                  </h4>
+                  <ul class="list-disc pl-6 space-y-2">
+                    <li>Kết nối internet ổn định</li>
+                    <li>Không sử dụng các công cụ hỗ trợ hoặc gian lận</li>
+                  </ul>
+
+                  <div
+                    class="bg-blue-50 rounded-lg p-4 mt-6 border border-blue-200"
+                  >
+                    <div class="flex items-start">
+                      <div class="text-yellow-500 mr-3 text-2xl">
+                        <i class="fas fa-exclamation-circle"></i>
+                      </div>
+                      <div>
+                        <p class="font-semibold">Lưu ý:</p>
+                        <p class="text-sm">
+                          Khi bắt đầu làm bài, hệ thống sẽ không dừng lại cho
+                          đến khi hết giờ hoặc bạn nộp bài. Nếu thoát trong quá
+                          trình làm bài, kết quả sẽ không được lưu lại.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- History Content -->
+              <div
+                id="historyContent"
+                class="hidden animate__animated opacity-0 animate__fadeIn"
+              >
+                <h3 class="text-2xl font-bold text-[#354764] mb-4">
+                  Lịch sử làm bài
+                </h3>
+
+                <div class="overflow-x-auto">
+                  <table class="min-w-full bg-white rounded-lg overflow-hidden">
+                    <thead class="bg-[var(--primary-color)] text-white">
+                      <tr>
+                        <th class="py-3 px-4 text-left">Ngày thi</th>
+                        <th class="py-3 px-4 text-left">Điểm số</th>
+                        <th class="py-3 px-4 text-left">Thời gian</th>
+                        <th class="py-3 px-4 text-left">Chi tiết</th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr>
+                        <td class="py-3 px-4">25/06/2023</td>
+                        <td class="py-3 px-4 font-medium text-green-600">
+                          18/20
+                        </td>
+                        <td class="py-3 px-4">25 phút</td>
+                        <td class="py-3 px-4">
+                          <button class="text-[#354764] hover:text-[#354764]">
+                            <i class="fas fa-eye mr-1"></i> Xem
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 px-4">20/06/2023</td>
+                        <td class="py-3 px-4 font-medium text-[#354764]">
+                          15/20
+                        </td>
+                        <td class="py-3 px-4">34 phút</td>
+                        <td class="py-3 px-4">
+                          <button class="text-[#354764] hover:text-[#354764]">
+                            <i class="fas fa-eye mr-1"></i> Xem
+                          </button>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="py-3 px-4">15/06/2023</td>
+                        <td class="py-3 px-4 font-medium text-yellow-600">
+                          12/20
+                        </td>
+                        <td class="py-3 px-4">42 phút</td>
+                        <td class="py-3 px-4">
+                          <button class="text-[#354764] hover:text-[#354764]">
+                            <i class="fas fa-eye mr-1"></i> Xem
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div
+                  class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200"
+                >
+                  <h4 class="text-lg font-semibold mb-3 text-gray-700">
+                    Thống kê cá nhân
+                  </h4>
+                  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="text-center p-3 bg-white rounded-lg shadow-sm">
+                      <p class="text-2xl font-bold text-[#354764]">3</p>
+                      <p class="text-sm text-gray-500">Lần thi</p>
+                    </div>
+                    <div class="text-center p-3 bg-white rounded-lg shadow-sm">
+                      <p class="text-2xl font-bold text-green-600">15.0</p>
+                      <p class="text-sm text-gray-500">Điểm trung bình</p>
+                    </div>
+                    <div class="text-center p-3 bg-white rounded-lg shadow-sm">
+                      <p class="text-2xl font-bold text-purple-600">18</p>
+                      <p class="text-sm text-gray-500">Điểm cao nhất</p>
+                    </div>
+                    <div class="text-center p-3 bg-white rounded-lg shadow-sm">
+                      <p class="text-2xl font-bold text-red-500">34</p>
+                      <p class="text-sm text-gray-500">P/t.bình mỗi bài</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer
+      class="mt-32 bg-[linear-gradient(90deg,rgba(165,233,214,0.6),rgba(165,233,214,0.3))]"
+    >
+      <div class="bg-[url('../public/assets/img/sub_banner_2.png')]">
+        <img src="../public/assets/img/banner_mask_2.png" alt="banner_mask_2" />
+        <div class="container mt-16 pb-10 mx-auto grid grid-cols-4">
+          <div>
+            <img src="../public/assets/img/logo.png" alt="logo" class="w-28" />
+            <p class="mt-3 text-justify w-[calc(100%-60px)]">
+              Hệ thống thi trắc nghiệm Toán học 9 và Đề thi vào 10.
+            </p>
+
+            <div class="mt-6 flex gap-1">
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Danh mục</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Trang chủ</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Học tập</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Luyện đề</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Tải ứng dụng</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Liên hệ</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Thông tin</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Blog</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Về chúng tôi</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Liên hệ</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Câu hỏi thường gặp</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Liên hệ</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <p>
+                <i
+                  class="fa-solid fa-location-dot text-[var(--primary-color)]"
+                ></i>
+                Số 123, Đường ABC, Thành Phố Cà Mau
+              </p>
+              <p>
+                <i class="fa-solid fa-phone text-[var(--primary-color)]"></i>
+                0123456789
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope text-[var(--primary-color)]"></i>
+                email@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const text = "Nâng cao kiến thức thông qua các bài kiểm tra";
+      const element = document.getElementById("descTyping");
+      let index = 0;
+
+      function typeEffect() {
+        if (index < text.length) {
+          element.textContent += text.charAt(index);
+          index++;
+          setTimeout(typeEffect, 30);
+        }
+      }
+      typeEffect();
+
+      const historyTag = document.querySelector("#historyTag");
+      const rulesTag = document.querySelector("#rulesTag");
+
+      historyTag.addEventListener("click", () => {
+        historyTag.classList.add(
+          "text-[var(--primary-color)]",
+          "border-b-2",
+          "border-[var(--primary-color)]"
+        );
+        rulesTag.classList.remove(
+          "text-[var(--primary-color)]",
+          "border-b-2",
+          "border-[var(--primary-color)]"
+        );
+        document.querySelector("#rulesContent").classList.add("hidden");
+        document.querySelector("#historyContent").classList.remove("hidden");
+      });
+
+      rulesTag.addEventListener("click", () => {
+        rulesTag.classList.add(
+          "text-[var(--primary-color)]",
+          "border-b-2",
+          "border-[var(--primary-color)]"
+        );
+        historyTag.classList.remove(
+          "text-[var(--primary-color)]",
+          "border-b-2",
+          "border-[var(--primary-color)]"
+        );
+        document.querySelector("#historyContent").classList.add("hidden");
+        document.querySelector("#rulesContent").classList.remove("hidden");
+      });
+    </script>
+
+    <!-- <script src="main.js"></script> -->
+    <script src="../util/index.js"></script>
+  </body>
+</html>
