@@ -1,27 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download</title>
-    <link rel="stylesheet" href="download.css">
-</head>
-<body>
-    <div class="top-section">
-        <div class="learn-link" onclick="
-            document.location.href = '../learn';
-        ">
-            <img src="../exercise/contest/assets/images/turn-back.svg" class="learn-logo">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathSpeed - Download</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
+    />
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"
+    ></script>
+  </head>
+  <body>
+    <header
+      class="w-full bg-white/30 backdrop-blur-md shadow-sm flex justify-center items-center py-4 fixed top-0 left-0 right-0 z-50"
+    >
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="w-36">
+          <img
+            src="../public/assets/img/logo.png"
+            alt="Logo_Math_Speed"
+            class="w-full"
+          />
         </div>
-        <h1>Tải app điện thoại</h1>
+
+        <div class="flex items-center justify-center gap-14">
+          <a
+            href="../index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-house"></i>
+            Trang chủ
+          </a>
+          <a
+            href="../learn/index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-book-open-reader"></i>
+            Học Tập
+          </a>
+          <a
+            href="../exercise/index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-dumbbell"></i>
+            Luyện Đề
+          </a>
+          <a
+            href="./index.html"
+            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+          >
+            <i class="fa-solid fa-download"></i>
+            Tải ứng dụng
+          </a>
+        </div>
+
+        <div class="flex gap-4">
+          <button
+            class="px-5 py-2 hover:border-gray-600 transition-all bg-[white] border-gray-400 border-2 rounded-2xl font-bold text-black"
+          >
+            Đăng nhập
+          </button>
+          <button
+            class="px-5 py-2 hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2"
+          >
+            Bắt đầu
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="_breakcrumb w-full bg-[linear-gradient(90deg,rgba(165,233,214,0.6),rgba(165,233,214,0.3))]"
+    >
+      <div class="bg-[url('../public/assets/img/sub_banner_2.png')]">
+        <div
+          class="animate__animated animate__slideInDown w-full pt-[120px] pb-3 flex gap-4 items-center text-2xl uppercase font-bold justify-center"
+        >
+          <a
+            href="../index.html"
+            class="text-center text-[var(--primary-color)] hover:text-[var(--thir-color)]"
+            >Trang chủ</a
+          >
+          <span class="text-[var(--primary-color)]">|</span>
+          <p class="">Tải ứng dụng</p>
+        </div>
+        <p class="text-center pb-7 text-lg font-bold" id="descTyping"></p>
+      </div>
     </div>
 
-    <div class="mid-section">
-        <div class="version-container">
+    <div
+      class="content pt-20 pb-20 mt-10 flex flex-col items-center bg-[url('../public/assets/img/sub_banner_1.png')]"
+    >
+      <div class="w-full flex justify-center gap-8">
+        <div
+          class="animate__animated opacity-0 ob_slideInRight flex items-center justify-center w-40 h-40 border rounded-2xl border-slate-500 px-4 shadow-md bg-gray-100"
+        >
+          <img
+            class="w-full"
+            src="../public/assets/img/logo.png"
+            alt="Logo_Math_Speed"
+          />
         </div>
+        <div
+          class="animate__animated opacity-0 ob_slideInLeft w-40 h-40 border rounded-2xl border-slate-500 px-4 shadow-md bg-gray-100 flex items-center justify-center"
+        >
+          <sl-qr-code
+            value="https://github.com/mathspeed123/math/tree/main/app-versions"
+            radius="0.5"
+          ></sl-qr-code>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <h2
+          class="text-3xl text-[var(--primary-color)] font-bold uppercase"
+          style="word-spacing: 6px"
+          id="titleDownload"
+        ></h2>
+      </div>
+
+      <table
+        class="mt-8 shadow-md w-1/2 bg-white rounded-lg overflow-hidden animate__animated opacity-0 ob_fadeInUp"
+      >
+        <thead class="bg-[var(--primary-color)] text-white">
+          <tr>
+            <th class="py-3 px-4 text-left">Phiên bản</th>
+            <th class="py-3 px-4 text-left">Ngày phát hành</th>
+            <th class="py-3 px-4 text-left">Tên app</th>
+            <th class="py-3 px-4 text-left">Hệ điều hành</th>
+            <th class="py-3 px-4 text-left">Tải về</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-gray-200">
+          <tr>
+            <td class="py-3 px-4">1.0.1</td>
+            <td class="py-3 px-4 font-medium text-green-600">16/05/2025</td>
+            <td class="py-3 px-4">MathSpeed</td>
+            <td class="py-3 px-4">Android</td>
+            <td class="py-3 px-4">
+              <a
+                href="../app-versions/mathspeed-2025-1.apk"
+                class="py-1 px-3 rounded-md bg-[var(--primary-color)] hover:bg-[var(--thir-color)] transition-all text-white"
+              >
+                Download
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    
-    <script src="download.js"></script>
-</body>
+
+    <footer
+      class="mt-32 bg-[linear-gradient(90deg,rgba(165,233,214,0.6),rgba(165,233,214,0.3))]"
+    >
+      <div class="bg-[url('../public/assets/img/sub_banner_2.png')]">
+        <img src="../public/assets/img/banner_mask_2.png" alt="banner_mask_2" />
+        <div class="container mt-16 pb-10 mx-auto grid grid-cols-4">
+          <div>
+            <img src="../public/assets/img/logo.png" alt="logo" class="w-28" />
+            <p class="mt-3 text-justify w-[calc(100%-60px)]">
+              Hệ thống thi trắc nghiệm Toán học 9 và Đề thi vào 10.
+            </p>
+
+            <div class="mt-6 flex gap-1">
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-facebook"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="text-lg rounded-sm py-1 px-2 bg-[var(--primary-color)] hover:bg-[var(--thir-color)] text-white transition-all cursor-pointer"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Danh mục</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Trang chủ</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Học tập</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Luyện đề</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Tải ứng dụng</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Liên hệ</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Thông tin</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Blog</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Về chúng tôi</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Liên hệ</a
+              >
+              <a
+                href="#"
+                class="inline-block transition-all duration-300 ease-in-out hover:text-[var(--primary-color)] hover:pl-2"
+                >Câu hỏi thường gặp</a
+              >
+            </div>
+          </div>
+          <div>
+            <h2 class="mb-8 text-3xl font-bold uppercase">Liên hệ</h2>
+            <div class="space-y-2 flex flex-col text-lg">
+              <p>
+                <i
+                  class="fa-solid fa-location-dot text-[var(--primary-color)]"
+                ></i>
+                Số 123, Đường ABC, Thành Phố Cà Mau
+              </p>
+              <p>
+                <i class="fa-solid fa-phone text-[var(--primary-color)]"></i>
+                0123456789
+              </p>
+              <p>
+                <i class="fa-solid fa-envelope text-[var(--primary-color)]"></i>
+                email@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./textEffect.js"></script>
+    <script src="../util/index.js"></script>
+  </body>
 </html>
-
