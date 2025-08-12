@@ -7,7 +7,7 @@ const htmlUnitEl = units
     return `
     <div class="flex flex-col items-center relative">
             <div
-              class="relative z-0 shadow-lg rounded-xl p-4 bg-[var(--primary-color)] text-white w-[560px] flex justify-between items-center gap-10"
+              class="animate__animated opacity-0 ob_fadeInLeft relative z-0 shadow-lg rounded-xl p-4 bg-[var(--primary-color)] text-white w-[560px] flex justify-between items-center gap-10"
             >
               <div>
                 <div
@@ -35,7 +35,7 @@ const htmlUnitEl = units
                         ? `
                           <div class="w-20 ml-[-32px]">
                             <img
-                              class="w-full"
+                              class="w-full animate__animated opacity-0 ob_zoomIn"
                               src="../public/assets/img/${
                                 level.state === "unlock"
                                   ? "star.png"
@@ -49,7 +49,7 @@ const htmlUnitEl = units
                               ? `
                             <div class="w-32 rotate-12">
                               <img
-                                class="w-full"
+                                class="w-full animate__animated opacity-0 ob_zoomIn"
                                 src="../public/assets/img/black_path.png"
                                 alt="black_path"
                               />
@@ -61,7 +61,7 @@ const htmlUnitEl = units
                         : `
                           <div class="w-20 ml-[32px]">
                             <img
-                              class="w-full"
+                              class="w-full animate__animated opacity-0 ob_zoomIn"
                               src="../public/assets/img/${
                                 level.state === "unlock"
                                   ? "star.png"
@@ -75,7 +75,7 @@ const htmlUnitEl = units
                               ? `
                               <div class="w-32 -scale-x-100 ml-[-30px] rotate-[-5deg]">
                                 <img
-                                  class="w-full"
+                                  class="w-full animate__animated ob_zoomIn"
                                   src="../public/assets/img/black_path.png"
                                   alt="black_path"
                                 />
@@ -89,14 +89,16 @@ const htmlUnitEl = units
                 })
                 .join("")}
             </div>
-            <div
-              class="w-16 cursor-pointer absolute right-10 bottom-10 shadow-lg animate__animated animate__pulse animate__infinite"
-            >
-              <img
-                class="w-full"
-                src="../public/assets/img/box.svg"
-                alt="ruong"
-              />
+            <div class="animate__animated opacity-0 ob_bounceIn w-16 cursor-pointer absolute right-10 bottom-10 shadow-lg ">            
+              <div
+                class="animate__animated animate__pulse animate__infinite"
+              >
+                <img
+                  class="w-full"
+                  src="../public/assets/img/box.svg"
+                  alt="ruong"
+                />
+              </div>
             </div>
           </div>
   `;

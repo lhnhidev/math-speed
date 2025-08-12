@@ -1,17 +1,17 @@
 const observer = new IntersectionObserver(
-  (entries, observer) => {
+  (entries) => {
     entries.forEach((entry) => {
+      const el = entry.target;
       if (entry.isIntersecting) {
-        const el = entry.target;
-        let animClass = "";
-
-        animClass = el.dataset.anim;
-
+        const animClass = el.dataset.anim;
         if (animClass) {
           el.classList.remove("opacity-0");
           el.classList.add(`animate__${animClass}`);
-          // observer.unobserve(el);
-        } else {
+          observer.unobserve(el);
+        }
+      } else {
+        const animClass = el.dataset.anim;
+        if (animClass) {
           el.classList.add("opacity-0");
           el.classList.remove(`animate__${animClass}`);
         }
@@ -21,57 +21,61 @@ const observer = new IntersectionObserver(
   { threshold: 0.6 }
 );
 
-document.querySelectorAll(".ob_fadeInDown").forEach((el) => {
-  el.dataset.anim = "fadeInDown";
-  observer.observe(el);
+const animClasses = [
+  "fadeInDown",
+  "fadeInUp",
+  "fadeInLeft",
+  "fadeInRight",
+  "fadeIn",
+  "zoomIn",
+  "bounceIn",
+  "slideInDown",
+  "slideInUp",
+  "slideInLeft",
+  "slideInRight",
+];
+
+function observeElementsWithClass() {
+  animClasses.forEach((anim) => {
+    document.querySelectorAll(`.ob_${anim}`).forEach((el) => {
+      if (!el.dataset.anim) {
+        el.dataset.anim = anim;
+        observer.observe(el);
+      }
+    });
+  });
+}
+
+observeElementsWithClass();
+
+const mutationObserver = new MutationObserver((mutations) => {
+  mutations.forEach((mutation) => {
+    mutation.addedNodes.forEach((node) => {
+      if (node.nodeType !== 1) return;
+
+      animClasses.forEach((anim) => {
+        if (node.classList.contains(`ob_${anim}`)) {
+          if (!node.dataset.anim) {
+            node.dataset.anim = anim;
+            observer.observe(node);
+          }
+        }
+      });
+
+      animClasses.forEach((anim) => {
+        node.querySelectorAll &&
+          node.querySelectorAll(`.ob_${anim}`).forEach((child) => {
+            if (!child.dataset.anim) {
+              child.dataset.anim = anim;
+              observer.observe(child);
+            }
+          });
+      });
+    });
+  });
 });
 
-document.querySelectorAll(".ob_fadeInUp").forEach((el) => {
-  el.dataset.anim = "fadeInUp";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_fadeInLeft").forEach((el) => {
-  el.dataset.anim = "fadeInLeft";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_fadeInRight").forEach((el) => {
-  el.dataset.anim = "fadeInRight";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_fadeIn").forEach((el) => {
-  el.dataset.anim = "fadeIn";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_zoomIn").forEach((el) => {
-  el.dataset.anim = "zoomIn";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_bounceIn").forEach((el) => {
-  el.dataset.anim = "bounceIn";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_slideInDown").forEach((el) => {
-  el.dataset.anim = "slideInDown";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_slideInUp").forEach((el) => {
-  el.dataset.anim = "slideInUp";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_slideInLeft").forEach((el) => {
-  el.dataset.anim = "slideInLeft";
-  observer.observe(el);
-});
-
-document.querySelectorAll(".ob_slideInRight").forEach((el) => {
-  el.dataset.anim = "slideInRight";
-  observer.observe(el);
+mutationObserver.observe(document.body, {
+  childList: true,
+  subtree: true,
 });
