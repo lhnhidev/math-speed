@@ -2,6 +2,18 @@ import { units } from "./setData.js";
 
 const unitEl = document.querySelector("#units");
 
+// console.log(units);
+
+export const nextLevel = (a, b) => {
+  const unit = a - 1;
+  const level = b - 1;
+  if (level + 1 === units[unit].levels.length) {
+    units[unit + 1].levels[0] = "unlock";
+  } else {
+    units[unit].levels[level] = "unlock";
+  }
+};
+
 const htmlUnitEl = units
   .map((unit, index) => {
     return `
@@ -34,15 +46,23 @@ const htmlUnitEl = units
                       indexLevel % 2 === 0
                         ? `
                           <div class="w-20 ml-[-32px]">
-                            <img
-                              class="w-full animate__animated opacity-0 ob_zoomIn"
-                              src="../public/assets/img/${
-                                level.state === "unlock"
-                                  ? "star.png"
-                                  : "black_star.png"
-                              }"
-                              alt="star"
-                            />
+                            <a href="./test/index.html?unit=${unit.id}&level=${
+                            indexLevel + 1
+                          }" ${
+                            level.state === "lock"
+                              ? 'style="pointer-events: none;"'
+                              : ""
+                          }>
+                              <img
+                                class="w-full animate__animated opacity-0 ob_zoomIn"
+                                src="../public/assets/img/${
+                                  level.state === "unlock"
+                                    ? "star.png"
+                                    : "black_star.png"
+                                }"
+                                alt="star"
+                              />
+                            </a>
                           </div>
                           ${
                             indexLevel + 1 != unit.levels.length
@@ -60,25 +80,41 @@ const htmlUnitEl = units
                         `
                         : `
                           <div class="w-20 ml-[32px]">
-                            <img
-                              class="w-full animate__animated opacity-0 ob_zoomIn"
-                              src="../public/assets/img/${
-                                level.state === "unlock"
-                                  ? "star.png"
-                                  : "black_star.png"
-                              }"
-                              alt="star"
-                            />
+                            <a href="./test/index.html?unit=${unit.id}&level=${
+                            indexLevel + 1
+                          }" ${
+                            level.state === "lock"
+                              ? 'style="pointer-events: none;"'
+                              : ""
+                          }>
+                              <img
+                                class="w-full animate__animated opacity-0 ob_zoomIn"
+                                src="../public/assets/img/${
+                                  level.state === "unlock"
+                                    ? "star.png"
+                                    : "black_star.png"
+                                }"
+                                alt="star"
+                              />
+                            </a>
                           </div>
                           ${
                             indexLevel + 1 != unit.levels.length
                               ? `
                               <div class="w-32 -scale-x-100 ml-[-30px] rotate-[-5deg]">
-                                <img
-                                  class="w-full animate__animated ob_zoomIn"
-                                  src="../public/assets/img/black_path.png"
-                                  alt="black_path"
-                                />
+                                <a href="./test/index.html?unit=${
+                                  unit.id
+                                }&level=${indexLevel + 1}"${
+                                  level.state === "lock"
+                                    ? 'style="pointer-events: none;"'
+                                    : ""
+                                }>
+                                  <img
+                                    class="w-full animate__animated ob_zoomIn"
+                                    src="../public/assets/img/black_path.png"
+                                    alt="black_path"
+                                  />
+                                </a>
                               </div>
                             `
                               : ``
