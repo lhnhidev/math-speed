@@ -1,6 +1,6 @@
 import { data } from "./data/index.js";
 import { unit, level } from "./displayAns.js";
-import { nextLevel } from "../displayUnits.js";
+// import { nextLevel } from "../displayUnits.js";
 
 const submitButton = document.querySelector("#submitButton");
 const comfirmSubmit = document.querySelector("#comfirmSubmit");
