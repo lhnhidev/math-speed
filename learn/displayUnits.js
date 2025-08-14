@@ -30,12 +30,13 @@ const htmlUnitEl = units
                 </div>
                 <div class="mt-2">${unit.name}</div>
               </div>
-              <div
+              <a
+                href="./theory.html?unit=${unit.id}"
                 class="relative h-12 w-36 rounded-lg flex justify-center items-center gap-2 border-2 border-[var(--thir-color)] px-3 hover:scale-105 transition-all cursor-pointer"
               >
                 <i class="fa-solid fa-chalkboard-teacher"></i>
                 Lý thuyết
-              </div>
+              </a>
             </div>
 
             <div class="py-10 relative">
