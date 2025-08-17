@@ -22,8 +22,8 @@
     <header
       class="w-full bg-white/30 backdrop-blur-md shadow-sm flex justify-center items-center py-4 fixed top-0 left-0 right-0 z-50"
     >
-      <div class="container mx-auto flex justify-between items-center">
-        <div class="w-36">
+      <div class="container mx-auto flex justify-between items-center px-4">
+        <div class="w-20 md:w-28 lg:w-36">
           <img
             src="./public/assets/img/logo.png"
             alt="Logo_Math_Speed"
@@ -31,48 +31,99 @@
           />
         </div>
 
-        <div class="flex items-center justify-center gap-14">
+        <div
+          class="hidden md:flex items-center justify-center gap-10 lg:gap-14 md:gap-4"
+        >
           <a
             href="#"
-            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+            class="text-base lg:text-lg md:text-sm transition-all hover:text-[var(--primary-color)] cursor-pointer"
           >
             <i class="fa-solid fa-house"></i>
             Trang chủ
           </a>
           <a
             href="./learn/index.html"
-            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+            class="text-base lg:text-lg md:text-sm transition-all hover:text-[var(--primary-color)] cursor-pointer"
           >
             <i class="fa-solid fa-book-open-reader"></i>
             Học Tập
           </a>
           <a
             href="./exercise/index.html"
-            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+            class="text-base lg:text-lg md:text-sm transition-all hover:text-[var(--primary-color)] cursor-pointer"
           >
             <i class="fa-solid fa-dumbbell"></i>
             Luyện Đề
           </a>
           <a
             href="./download/index.html"
-            class="text-lg transition-all hover:text-[var(--primary-color)] cursor-pointer"
+            class="text-base lg:text-lg md:text-sm transition-all hover:text-[var(--primary-color)] cursor-pointer"
           >
             <i class="fa-solid fa-download"></i>
             Tải ứng dụng
           </a>
         </div>
 
-        <div class="flex gap-4">
-          <button
-            class="px-5 py-2 hover:border-gray-600 transition-all bg-[white] border-gray-400 border-2 rounded-2xl font-bold text-black"
+        <div class="hidden md:flex gap-4">
+          <a
+            href="./login/index.html"
+            class="px-1 py-1 lg:px-4 lg:py-2 text-sm lg:text-base hover:border-gray-600 transition-all bg-white border-gray-400 border-2 rounded-2xl font-bold text-black"
           >
             Đăng nhập
-          </button>
+          </a>
           <button
-            class="px-5 py-2 hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2"
+            class="px-1 py-1 lg:px-4 lg:py-2 text-sm lg:text-base hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2"
           >
             Bắt đầu
           </button>
+        </div>
+
+        <!-- Icon menu (chỉ hiện trên mobile) -->
+        <button
+          class="md:hidden text-2xl hover:text-[var(--primary-color)] transition-all"
+          id="bar"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div
+        id="subNav"
+        class="bg-[#DEF7F0] hidden shadow-md w-full backdrop-blur-md absolute top-[100%] animate__animated animate__fadeInRight"
+      >
+        <div class="">
+          <a
+            href="./index.html"
+            class="w-full px-5 py-3 block hover:bg-[var(--primary-color)] hover:text-white transition-all"
+            >Trang chủ</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="./learn/index.html"
+            class="w-full px-5 py-3 block hover:bg-[var(--primary-color)] hover:text-white transition-all"
+            >Học tập</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="./exercise/index.html"
+            class="w-full px-5 py-3 block hover:bg-[var(--primary-color)] hover:text-white transition-all"
+            >Luyện đề</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="./download/index.html"
+            class="w-full px-5 py-3 block hover:bg-[var(--primary-color)] hover:text-white transition-all"
+            >Tải ứng dụng</a
+          >
+        </div>
+        <div class="">
+          <a
+            href="./login/index.html"
+            class="w-full px-5 py-3 block hover:bg-[var(--primary-color)] hover:text-white transition-all"
+            >Đăng nhập</a
+          >
         </div>
       </div>
     </header>
@@ -86,7 +137,7 @@
             <img
               src="./public/assets/img/Math_Speed.png"
               alt="Banner"
-              class="w-[900px] mx-auto mt-5 animate__animated animate__fadeInDown relative z-0"
+              class="sm:w-[500px] w-[300px] lg:w-[900px] mx-auto mt-5 animate__animated animate__fadeInDown relative z-0"
             />
           </div>
 
@@ -94,14 +145,14 @@
             class="mt-12 mx-auto flex flex-col items-center text-[var(--primary-color)]"
           >
             <p
-              class="text-center text-3xl font-bold animate__animated animate__fadeInDown"
+              class="text-center lg:text-3xl sm:text-xl text-md font-bold animate__animated animate__fadeInDown"
             >
               Bứt phá Toán 9 – Chinh phục Đề thi vào 10
             </p>
 
             <div>
               <button
-                class="animate__animated animate__fadeInUp px-8 py-3 mt-5 hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2 shadow-md"
+                class="animate__animated animate__fadeInUp px-3 py-1 md:px-8 md:py-3 mt-5 hover:bg-[var(--thir-color)] hover:border-[var(--thir-color)] transition-all bg-[var(--primary-color)] rounded-2xl font-bold text-white border-[var(--primary-color)] border-2 shadow-md"
               >
                 Học ngay
               </button>
@@ -117,7 +168,7 @@
       <div class="">
         <div class="section-1 mt-10 pt-12">
           <div
-            class="container mx-auto py-12 grid grid-cols-5 gap-4 items-center"
+            class="container mx-auto py-12 flex-col flex grid-cols-5 sm:grid gap-4 items-center"
           >
             <div class="col-span-3 animate__animated ob_slideInRight opacity-0">
               <img
@@ -127,10 +178,14 @@
               />
             </div>
             <div class="col-span-2 animate__animated ob_slideInLeft opacity-0">
-              <h2 class="text-6xl uppercase font-bold leading-tight">
+              <h2
+                class="sm:text-2xl text-lg md:text-4xl lg:text-6xl text-center sm:text-left uppercase font-bold leading-tight"
+              >
                 Học mọi lúc, mọi nơi!
               </h2>
-              <p class="text-lg mt-3 w-[calc(100%-50px)]">
+              <p
+                class="text-md sm:text-lg mt-3 w-[calc(100%-50px)] text-center sm:text-left sm:mx-[unset] mx-auto"
+              >
                 Làm kiểm tra bất cứ khi nào bạn muốn, trên mọi thiết bị. Học tập
                 linh hoạt theo nhịp sống của bạn
               </p>
@@ -140,13 +195,17 @@
 
         <div class="section-2 mt-3 pt-4">
           <div
-            class="container ml-[200px] py-12 grid grid-cols-5 gap-4 items-center"
+            class="container xl:ml-[200px] lg:ml-[120px] md:ml-[90px] sm:ml-[40px] ml-[20px] py-12 sm:grid flex flex-col grid-cols-5 gap-4 items-center"
           >
             <div class="col-span-2 animate__animated ob_slideInRight opacity-0">
-              <h2 class="text-6xl uppercase font-bold leading-tight">
+              <h2
+                class="sm:text-2xl text-lg md:text-4xl lg:text-6xl text-center sm:text-left uppercase font-bold leading-tight"
+              >
                 Trắc nghiệm đa dạng
               </h2>
-              <p class="text-lg mt-3 w-[calc(100%-50px)]">
+              <p
+                class="text-md sm:text-lg sm:text-left text-center mt-3 w-[calc(100%-50px)] sm:mx-[unset] mx-auto"
+              >
                 Khám phá hàng trăm câu hỏi trắc nghiệm phong phú, giúp bạn luyện
                 tập và kiểm tra kiến thức hiệu quả.
               </p>
@@ -168,7 +227,7 @@
         <div class="container mx-auto">
           <div>
             <h2
-              class="text-6xl uppercase font-bold leading-tight text-center animate__animated opacity-0 ob_fadeInDown"
+              class="lg:text-6xl sm:text-2xl text-lg md:text-4xl uppercase font-bold leading-tight text-center animate__animated opacity-0 ob_fadeInDown"
             >
               Vô vàng chủ đề
             </h2>
@@ -179,7 +238,7 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-7 mt-28">
+          <div class="sm:grid hidden grid-cols-7 mt-28">
             <div class="col-span-2">
               <div
                 class="mr-[-90px] mt-[-30px] animate__animated opacity-0 ob_slideInLeft"
@@ -197,7 +256,9 @@
                 </div>
               </div>
 
-              <div class="mt-20 animate__animated opacity-0 ob_slideInLeft">
+              <div
+                class="mr-[-90px] md:mr-[0px] mt-20 animate__animated opacity-0 ob_slideInLeft"
+              >
                 <div
                   class="rounded-md shadow-md bg-[var(--primary-color)] p-2 inline-block float-right text-white text-2xl"
                 >
@@ -231,7 +292,7 @@
               class="col-span-3 mt-14 animate__animated opacity-0 ob_bounceIn"
             >
               <img
-                class="w-[calc(100%-50px)] mx-auto block mt-10"
+                class="w-[calc(100%-50px)] mx-auto block lg:mt-10 md:mt-20 md:block hidden"
                 src="./public/assets/img/section-3.svg"
                 alt="section-3"
               />
@@ -253,7 +314,9 @@
                 </div>
               </div>
 
-              <div class="mt-20 animate__animated opacity-0 ob_slideInRight">
+              <div
+                class="ml-[-90px] md:ml-[0px] mt-20 animate__animated opacity-0 ob_slideInRight"
+              >
                 <div
                   class="rounded-md shadow-md bg-[var(--primary-color)] p-2 inline-block float-left text-white text-2xl"
                 >
@@ -290,7 +353,7 @@
       <div>
         <div class="section-4">
           <div
-            class="container mx-auto pt-48 pb-20 grid grid-cols-7 gap-4 items-center"
+            class="container mx-auto pt-48 pb-20 flex-col-reverse flex sm:grid grid-cols-7 gap-4 items-center"
           >
             <div class="col-span-4 animate__animated opacity-0 ob_fadeInRight">
               <img
@@ -300,10 +363,14 @@
               />
             </div>
             <div class="col-span-3 animate__animated opacity-0 ob_fadeInLeft">
-              <h2 class="text-6xl uppercase font-bold leading-tight">
+              <h2
+                class="sm:text-2xl text-lg md:text-4xl lg:text-6xl text-center sm:text-left uppercase font-bold leading-tight"
+              >
                 Chinh Phục Từng Level
               </h2>
-              <p class="text-lg mt-3 w-[calc(100%-50px)]">
+              <p
+                class="text-lg mt-3 w-[calc(100%-50px)] text-center sm:text-left sm:mx-[unset] mx-auto"
+              >
                 Chinh phục từng cấp độ kiến thức từ cơ bản đến nâng cao, giúp
                 bạn tiến bộ liên tục và tự tin hơn mỗi ngày.
               </p>
@@ -313,17 +380,19 @@
 
         <div class="section-5">
           <div
-            class="container pt-24 mx-auto grid grid-cols-2 gap-4 items-center"
+            class="container pt-24 mx-auto grid-cols-2 gap-4 flex-col flex sm:grid items-center"
           >
             <div
-              class="col-span-1 ml-[100px] animate__animated opacity-0 ob_fadeInRight"
+              class="col-span-1 sm:ml-[100px] animate__animated opacity-0 ob_fadeInRight"
             >
               <h2
-                class="text-6xl uppercase font-bold leading-tight w-[calc(100%-50px)] mt-16"
+                class="sm:text-2xl text-lg md:text-4xl lg:text-6xl text-center mx-auto sm:mx-[unset] sm:text-left uppercase font-bold leading-tight w-[calc(100%-50px)] mt-16"
               >
                 Kết nối với bạn bè
               </h2>
-              <p class="text-lg mt-3 clear-both">
+              <p
+                class="text-lg mt-3 clear-both text-center sm:text-left sm:mx-[unset] mx-auto"
+              >
                 Cộng đồng học tập đông đảo, sôi nổi giúp bạn kết nối, chia sẻ và
                 tiến bộ nhanh chóng mỗi ngày
               </p>
@@ -347,7 +416,7 @@
         <div class="container mx-auto">
           <div class="text-center">
             <h2
-              class="mb-6 text-5xl font-bold animate__animated opacity-0 ob_bounceIn"
+              class="mb-6 sm:text-2xl text-lg md:text-4xl lg:text-6xl font-bold animate__animated opacity-0 ob_bounceIn"
             >
               Liên hệ với chúng mình!
             </h2>
@@ -358,16 +427,16 @@
           </div>
 
           <div
-            class="relative w-[50%] mt-10 mx-auto animate__animated opacity-0 ob_zoomIn"
+            class="relative sm:w-[400px] w-[80%] lg:w-[50%] mt-10 mx-auto animate__animated opacity-0 ob_zoomIn"
           >
             <input
               type="email"
               placeholder="Nhập Email của bạn..."
-              class="w-full pr-20 pl-4 py-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200"
+              class="w-full text-sm sm:text-lg pr-20 pl-4 py-6 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-200"
             />
             <button
               type="submit"
-              class="text-lg absolute top-1/2 right-4 transform -translate-y-1/2 bg-[var(--primary-color)] text-white px-7 py-3 rounded-lg hover:bg-[var(--thir-color)] transition-all"
+              class="sm:text-lg text-sm absolute top-1/2 right-4 transform -translate-y-1/2 bg-[var(--primary-color)] text-white sm:px-7 sm:py-3 px-2 py-1 rounded-lg hover:bg-[var(--thir-color)] transition-all"
             >
               Gửi đi
             </button>
@@ -383,7 +452,9 @@
     >
       <div class="bg-[url('./public/assets/img/sub_banner_2.png')]">
         <img src="./public/assets/img/banner_mask_2.png" alt="banner_mask_2" />
-        <div class="container mt-16 pb-10 mx-auto grid grid-cols-4">
+        <div
+          class="container mt-16 pb-10 mx-auto grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1"
+        >
           <div>
             <img src="./public/assets/img/logo.png" alt="logo" class="w-28" />
             <p class="mt-3 text-justify w-[calc(100%-60px)]">
@@ -417,7 +488,7 @@
               </a>
             </div>
           </div>
-          <div>
+          <div class="md:block hidden">
             <h2 class="mb-8 text-3xl font-bold uppercase">Danh mục</h2>
             <div class="space-y-2 flex flex-col text-lg">
               <a
@@ -447,7 +518,7 @@
               >
             </div>
           </div>
-          <div>
+          <div class="md:block hidden">
             <h2 class="mb-8 text-3xl font-bold uppercase">Thông tin</h2>
             <div class="space-y-2 flex flex-col text-lg">
               <a
@@ -472,7 +543,7 @@
               >
             </div>
           </div>
-          <div>
+          <div class="hidden lg:block">
             <h2 class="mb-8 text-3xl font-bold uppercase">Liên hệ</h2>
             <div class="space-y-2 flex flex-col text-lg">
               <p>
@@ -497,4 +568,5 @@
   </body>
 
   <script src="./util/index.js"></script>
+  <script src="./index.js"></script>
 </html>

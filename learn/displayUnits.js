@@ -1,17 +1,22 @@
-import { units } from "./setData.js";
+import { units as unitsOrigin } from "./setData.js";
+const units = JSON.parse(localStorage.getItem("units")) || unitsOrigin;
+
+console.log(units);
 
 const unitEl = document.querySelector("#units");
 
-// console.log(units);
-
 export const nextLevel = (a, b) => {
-  const unit = a - 1;
-  const level = b - 1;
-  if (level + 1 === units[unit].levels.length) {
-    units[unit + 1].levels[0] = "unlock";
+  console.log(a, b);
+  const unit = a - 1; // 0
+  const level = b - 1; // 2
+  if (level === units[unit].levels.length) {
+    units[unit + 1].levels[0].state = "unlock";
   } else {
-    units[unit].levels[level] = "unlock";
+    units[unit].levels[level].state = "unlock";
   }
+
+  localStorage.setItem("units", JSON.stringify(units));
+  console.log(units);
 };
 
 const htmlUnitEl = units
@@ -19,7 +24,7 @@ const htmlUnitEl = units
     return `
     <div class="flex flex-col items-center relative">
             <div
-              class="animate__animated opacity-0 ob_fadeInLeft relative z-0 shadow-lg rounded-xl p-4 bg-[var(--primary-color)] text-white w-[560px] flex justify-between items-center gap-10"
+              class="animate__animated opacity-0 ob_fadeInLeft relative z-0 shadow-lg rounded-xl p-4 bg-[var(--primary-color)] text-white md:w-[560px] sm:w-[400px] w-[300px] flex justify-between items-center gap-10"
             >
               <div>
                 <div
@@ -126,7 +131,7 @@ const htmlUnitEl = units
                 })
                 .join("")}
             </div>
-            <div class="animate__animated opacity-0 ob_bounceIn w-16 cursor-pointer absolute right-10 bottom-10 shadow-lg ">            
+            <div class="animate__animated opacity-0 ob_bounceIn w-16 cursor-pointer absolute sm:right-10 right-3 bottom-10 shadow-lg ">            
               <div
                 class="animate__animated animate__pulse animate__infinite"
               >
@@ -142,4 +147,4 @@ const htmlUnitEl = units
   })
   .join("");
 
-unitEl.innerHTML = htmlUnitEl;
+if (unitEl) unitEl.innerHTML = htmlUnitEl;

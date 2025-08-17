@@ -1,6 +1,6 @@
 import { data } from "./data/index.js";
 import { unit, level } from "./displayAns.js";
-// import { nextLevel } from "../displayUnits.js";
+import { nextLevel } from "../displayUnits.js";
 
 const submitButton = document.querySelector("#submitButton");
 const comfirmSubmit = document.querySelector("#comfirmSubmit");
@@ -50,8 +50,10 @@ submitButton.addEventListener("click", () => {
       `;
     });
 
-    if (mark === Math.floor(0.1 * que.length)) {
-      // nextLevel(unit, level + 1);
+    console.log(que.length);
+    if (mark >= Math.floor(0.7 * que.length)) {
+      console.log(Number(unit), Number(level) + 1);
+      nextLevel(Number(unit), Number(level) + 1);
     }
   });
 });

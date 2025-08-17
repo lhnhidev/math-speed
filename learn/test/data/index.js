@@ -452,6 +452,323 @@ export const data = {
       },
     ],
   },
-  unit2: {},
+  unit2: {
+    level1: [
+      {
+        question: `
+      Giải hệ phương trình<br>
+      <p class="highlight red indent">x + y = 3</p>
+      <p class="highlight red indent">2x - 3y = 1</p>
+      theo hướng dẫn sau
+      <p>1. Từ phương trình thứ nhất, biểu diễn y theo x rồi thế vào phương 
+      trình thứ hai để được một phương trình với một ẩn x. Giải phương trình 
+      một ẩn đó để tìm giá trị của x.</p>
+      <p>2. Sử dụng giá trị tìm được của x để tìm giá trị của y rồi viết 
+      nghiệm của hệ phương trình đã cho.</p>
+    `,
+        answers: [
+          { index: 0, ans: "(2; 1)", type: true },
+          { index: 1, ans: "(3; 0)", type: false },
+          { index: 2, ans: "(1; 2)", type: false },
+          { index: 3, ans: "(-1; 4)", type: false },
+        ],
+        explain: `
+      1. Từ phương trình thứ nhất ta có y = 3 - x.<br>
+      2. Thế vào phương trình thứ hai, ta được<br>
+      2x - 3(3 - x) = 1, hay 2x - 9 + 3x = 1, nên 5x = 10, suy ra x = 2.<br>
+      Từ đó y = 3 - 2 = 1.<br>
+      Vậy hệ phương trình đã cho có nghiệm là (2; 1).
+    `,
+      },
+      {
+        question: `
+      Giải hệ phương trình<br>
+      <p class="highlight red indent">x - 3y = 2</p>
+      <p class="highlight red indent">-2x + 5y = 1</p>
+      bằng phương pháp thế
+    `,
+        answers: [
+          { index: 0, ans: "(-13; -5)", type: true },
+          { index: 1, ans: "(8; 6)", type: false },
+          { index: 2, ans: "(1; 2)", type: false },
+          { index: 3, ans: "(0; -2)", type: false },
+        ],
+        explain: `
+      Từ phương trình thứ nhất ta có x = 3y + 2. Thế vào phương trình thứ hai, 
+      ta được<br>
+      -2(3y + 2) + 5y = 1, tức là -6y - 4 + 5y = 1, suy ra -y = 5 hay y = -5.<br>
+      Từ đó x = 3 . (-5) + 2 = -13.<br>
+      Vậy hệ phương trình đã cho có nghiệm là (-13; -5).
+    `,
+      },
+      {
+        question: `
+      Một mảnh vườn được đánh thành nhiều luống, mỗi luống trồng cùng một số 
+      cây cải bắp. Hãy tính số cây cải bắp được trồng trên mảnh vườn đó, biết 
+      rằng:<br>
+      - Nếu tăng thêm 8 luống, nhưng mỗi luống trồng ít đi 3 cây cải bắp thì số 
+      cải bắp của cả vườn sẽ ít đi 108 cây;<br>
+      - Nếu giảm đi 4 luống, nhưng mỗi luống trồng thêm 2 cây thì số cải bắp cả 
+      vườn sẽ tăng thêm 64 cây.<br>
+    `,
+        answers: [
+          { index: 0, ans: "11088", type: true },
+          { index: 1, ans: "13209", type: false },
+          { index: 2, ans: "12913", type: false },
+          { index: 3, ans: "9009", type: false },
+        ],
+        explain: `
+      Gọi x là số luống trong vườn, y là số cây cải bắp trồng ở mỗi luống
+      (x, y ∈ N*)<br><br>
+      ...
+      Vậy số cây cải bắp được trồng trên mảnh vườn đó là: 168 . 66 = 
+      11088 (cây).<br>
+    `,
+      },
+    ],
+    level2: [
+      {
+        question: `
+            Giải hệ phương trình<br>
+            <p class="highlight red indent">3x + 2y = 6</p>
+            <p class="highlight red indent">2x - 2y = 14</p>
+            bằng phương pháp cộng đại số
+        `,
+        answers: [
+          { index: 1, ans: "(4; -3)", type: true },
+          { index: 2, ans: "(1; 2)", type: false },
+          { index: 3, ans: "(4; 0)", type: false },
+          { index: 4, ans: "(3; -4)", type: false },
+        ],
+        explain: `
+            Cộng từng vế của hai phương trình ta được 3x + 2y + 2x - 2y = 20 
+            hay 5x = 20, suy ra x = 4.<br><br>
+            Thế x = 4 vào phương trình thứ nhất, ta được 3 . 4 + 2y = 6 
+            hay 2y = -6, suy ra y = -3.<br><br>
+            Vậy hệ phương trình đã cho có nghiệm là (4; -3).<br><br>
+        `,
+      },
+      {
+        question: `
+            Giải hệ phương trình<br>
+            <p class="highlight red">0,3x + 0,5y = 3</p>
+            <p class="highlight red">1,5x - 2y = 1,5</p>
+            bằng phương pháp cộng đại số
+        `,
+        answers: [
+          { index: 1, ans: "(5; 3)", type: true },
+          { index: 2, ans: "(4; 6)", type: false },
+          { index: 3, ans: "(-2; 7)", type: false },
+          { index: 4, ans: "(1; 1)", type: false },
+        ],
+        explain: `
+            Nhân hai vế của phương trình thứ nhất với 10 và nhân hai vế 
+            của phương trình thứ hai với 2, ta được:<br>
+            <p class="highlight red indent">3x + 5y = 30</p>
+            <p class="highlight red indent">3x - 4y = 3</p><br>
+            Trừ từng vế hai phương trình của hệ mới, ta được 9y = 27 hay y = 3.<br><br>
+            Thế y = 3 vào phương trình thứ hai của hệ mới, ta có 3x - 4 . 3 = 3 hay 3x = 15, suy ra x = 5.<br><br>
+            Vậy hệ phương trình đã cho có nghiệm là (5; 3).
+        `,
+      },
+    ],
+    level3: [
+      {
+        question: `
+            Giải hệ phương trình<br>
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-2m²x + 9y = 3(m + 3)</p>
+            trong trường hợp m = -2
+        `,
+        answers: [
+          {
+            index: 0,
+            ans: "(-<sup>12</sup>/<sub>5</sub>; -<sup>9</sup>/<sub>5</sub>)",
+            type: true,
+          },
+          { index: 1, ans: "Vô nghiệm", type: false },
+          { index: 2, ans: "(3; 2)", type: false },
+          { index: 3, ans: "(-1; 5)", type: false },
+        ],
+        explain: `
+            Với m = -2 ta có hệ phương trình
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-8x + 9y = 3</p><br>
+            Nhân hai vế của phương trình thứ nhất với 4, ta được:<br>
+            <p class="highlight red indent">8x - 4y = -12</p>
+            <p class="highlight red indent">-8x + 9y = 3</p><br>
+            Cộng từng vế hai phương trình của hệ mới, ta được 5y = -9 hay 
+            y = -<sup>9</sup>/<sub>5</sub><br><br>
+            Thế y = -<sup>9</sup>/<sub>5</sub> vào phương trình thứ nhất của hệ
+            đã cho, ta có 2x + <sup>9</sup>/<sub>5</sub> = -3 hay
+            2x = -<sup>24</sup>/<sub>5</sub>, suy ra
+            x = -<sup>12</sup>/<sub>5</sub><br><br>
+            Vậy hệ phương trình đã cho có nghiệm là
+            (-<sup>12</sup>/<sub>5</sub>; -<sup>9</sup>/<sub>5</sub>)
+        `,
+      },
+      {
+        question: `
+            Giải hệ phương trình<br>
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-2m²x + 9y = 3(m + 3)</p>
+            trong trường hợp m = -3
+        `,
+        answers: [
+          { index: 0, ans: "Vô nghiệm", type: true },
+          { index: 1, ans: "(-3; -2)", type: false },
+          { index: 2, ans: "(5; 5)", type: false },
+          { index: 3, ans: "(-1; 6)", type: false },
+        ],
+        explain: `
+            Với m = -3 ta có hệ phương trình
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-18x + 9y = 0</p><br>
+            Chia hai vế của phương trình thứ hai cho 9, ta được:<br>
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-2x + y = 0</p><br>
+            Cộng từng vế hai phương trình của hệ mới, ta được 
+            0x + 0y = -3 (1)<br><br>
+            Do không có giá trị nào của x và y thỏa mãn hệ thức (1) nên hệ phương 
+            trình đã cho vô nghiệm.
+        `,
+      },
+      {
+        question: `
+            Giải hệ phương trình<br>
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-2m²x + 9y = 3(m + 3)</p>
+            trong trường hợp m = 3
+        `,
+        answers: [
+          { index: 0, ans: "Vô nghiệm", type: true },
+          { index: 1, ans: "(-3; -2)", type: false },
+          { index: 2, ans: "(5; 5)", type: false },
+          { index: 3, ans: "(-1; 6)", type: false },
+        ],
+        explain: `
+            Với m = 3 ta có hệ phương trình
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-18x + 9y = 18</p><br>
+            Chia hai vế của phương trình thứ hai cho 9, ta được:<br>
+            <p class="highlight red indent">2x - y = -3</p>
+            <p class="highlight red indent">-2x + y = 2</p><br>
+            Cộng từng vế hai phương trình của hệ mới, ta được 
+            0x + 0y = -1 (1)<br><br>
+            Do không có giá trị nào của x và y thỏa mãn hệ thức (1) nên hệ phương 
+            trình đã cho vô nghiệm.
+        `,
+      },
+    ],
+    level4: [
+      {
+        question: `
+            Cặp số nào sau đây là nghiệm của hệ phương trình<br>
+            <p class="highlight red indent">5x + 7y = -1</p>
+            <p class="highlight red indent">-3x + 2y = -5</p>
+        `,
+        answers: [
+          { index: 0, ans: "(-3; 2)", type: true },
+          { index: 1, ans: "(-1; 1)", type: false },
+          { index: 2, ans: "(2; -3)", type: false },
+          { index: 3, ans: "(5; 5)", type: false },
+        ],
+        explain: `
+            Nhân hai vế của phương trình thứ nhất với 3 và nhân hai vế của 
+            phương trình thứ hai với 5, ta được: <br>
+            <p class="highlight red indent">15x + 21y = -3</p>
+            <p class="highlight red indent">15x + 10y = -25</p>
+            Trừ từng vế hai phương trình của hệ mới, ta được 11y = 22 
+            hay y = 2.<br><br>
+            Thế y = 2 vào phương trình thứ hai của hệ đã cho, ta có 
+            3x + 2 . 2 = -5 hay 3x = -9, suy ra x = -3.<br><br>
+            Do đó, hệ phương trình đã cho có nghiệm là (-3; 2).
+        `,
+      },
+      {
+        question: `
+            Trên mặt phẳng tọa độ Oxy, cho các điểm A(1; 2), B(5; 6), C(2; 3), 
+            D(-1; -1). Đường thẳng 4x - 3y = -1 đi qua hai điểm nào trong các 
+            điểm đã cho?
+        `,
+        answers: [
+          { index: 0, ans: "C và D", type: true },
+          { index: 1, ans: "A và B", type: false },
+          { index: 2, ans: "B và C", type: false },
+          { index: 3, ans: "D và A", type: false },
+        ],
+        explain: `
+            • Thay x = 1; y = 2 vào phương trình đường thẳng, ta có:<br><br>
+            4 . 1 - 3 . 2 = 4 - 6 = -2 ≠ -1.<br><br>
+            Suy ra đường thẳng 4x - 3y = -1 không đi qua A(1; 2).<br><br>
+            • Thay x = 5; y = 6 vào phương trình đường thẳng, ta có:<br><br>
+            4 . 5 - 3 . 6 = 20 - 18 = 2 ≠ -1.<br><br>
+            Suy ra đường thẳng 4x - 3y = -1 không đi qua B(5; 6).<br><br>
+            • Thay x = 2; y = 3 vào phương trình đường thẳng, ta có:<br><br>
+            4 . 2 - 3 . 3 = 8 - 9 = -1.<br><br>
+            Suy ra đường thẳng 4x - 3y = -1 đi qua C(2; 3) và D(-1; -1).
+        `,
+      },
+      {
+        question: `
+            Tìm các hệ số x, y trong phản ứng hóa học đã được cân bằng sau:
+            <p class="highlight red indent">4Al + xO<sub>2</sub> → 
+            yAl<sub>2</sub>O<sub>3</sub></p>
+        `,
+        answers: [
+          { index: 0, ans: "x = 3; y = 2", type: true },
+          { index: 1, ans: "x = 1; y = 2", type: false },
+          { index: 2, ans: "x = 1; y = 1", type: false },
+          { index: 3, ans: "x = 2; y = 2", type: false },
+        ],
+        explain: `
+            Vì số nguyên tử Al và O ở cả hai vế của phương trình phản ứng 
+            bằng nhau nên ta có hệ phương trình<br>
+            <p class="highlight red indent">4 = 2y</p>
+            <p class="highlight red indent">2x = 3y</p><br>
+            Suy ra:
+            <p class="highlight red indent">y = 2</p>
+            <p class="highlight red indent">x = 3</p><br>
+        `,
+      },
+      {
+        question: `
+            Tìm a và b sao cho hệ phương trình<br>
+            <p class="highlight red indent">ax + by = 1</p>
+            <p class="highlight red indent">ax + (2 - b)y = 3</p><br>
+            có nghiệm là (1; -2)
+        `,
+        answers: [
+          { index: 0, ans: "a = 4; b = <sup>3</sup>/<sub>2</sub>", type: true },
+          {
+            index: 1,
+            ans: "a = <sup>2</sup>/<sub>5</sub>; b = <sup>4</sup>/<sub>7</sub>",
+            type: false,
+          },
+          { index: 2, ans: "a = 1; b = -2", type: false },
+          {
+            index: 3,
+            ans: "Không có giá trị của a và b thoả mãn",
+            type: false,
+          },
+        ],
+        explain: `
+            Hệ phương trình đã cho có nghiệm là (1; -2) nên ta có
+            <p class="highlight red indent">a.1 + b.(-2) = 1</p>
+            <p class="highlight red indent">a.1 + (2 - b).(-2) = 3</p><br>
+            Suy ra<br>
+            <p class="highlight red indent">a - 2b = 1</p>
+            <p class="highlight red indent">a + 2b - 4 = 3</p><br>
+            hay <br>
+            <p class="highlight red indent">a - 2b = 1</p>
+            <p class="highlight red indent">a + 2b = 7</p><br>
+            Cộng từng vế hai phương trình của hệ mới, ta được 2a = 8 hay a = 4.<br><br>
+            Thế a = 4 vào phương trình thứ nhất của hệ mới, ta có 4 - 2b = 1 
+            hay 2b = 3, suy ra b = <sup>3</sup>/<sub>2</sub><br><br>
+            Vậy a = 4 và b = <sup>3</sup>/<sub>2</sub>
+        `,
+      },
+    ],
+  },
   unit3: {},
 };
