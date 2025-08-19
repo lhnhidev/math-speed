@@ -1,4 +1,3 @@
-// Tab switching between login and register
 document.getElementById("login-tab").addEventListener("click", function () {
   document.getElementById("login-tab").classList.add("active");
   document.getElementById("register-tab").classList.remove("active");
@@ -15,7 +14,6 @@ document.getElementById("register-tab").addEventListener("click", function () {
   document.getElementById("login-form").classList.add("flipped");
 });
 
-// Show register link
 document
   .getElementById("show-register")
   .addEventListener("click", function (e) {
@@ -23,14 +21,11 @@ document
     document.getElementById("register-tab").click();
   });
 
-// Show login link
 document.getElementById("show-login").addEventListener("click", function (e) {
   e.preventDefault();
   document.getElementById("login-tab").click();
 });
 
-// Form validation
-// Login form validation
 document.getElementById("loginForm").addEventListener("submit", function (e) {
   e.preventDefault();
   let isValid = true;
@@ -38,7 +33,6 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   const username = document.getElementById("login-username").value.trim();
   const password = document.getElementById("login-password").value;
 
-  // Reset errors
   document
     .querySelectorAll(".error-message")
     .forEach((el) => (el.style.display = "none"));
@@ -63,9 +57,9 @@ document.getElementById("loginForm").addEventListener("submit", function (e) {
   }
 
   if (isValid) {
-    // Form is valid, proceed with login
-    alert("Đăng nhập thành công! Đang chuyển hướng...");
-    // window.location.href = 'dashboard.html';
+    console.log(username, password);
+    const notyf = new Notyf();
+    notyf.success("Đăng nhập thành công! Đang chuyển hướng...");
   }
 });
 
@@ -128,11 +122,12 @@ document
     }
 
     if (isValid) {
-      // Form is valid, proceed with registration
-      alert("Đăng ký thành công! Vui lòng đăng nhập.");
-      document.getElementById("login-tab").click();
-
-      // Clear form
-      document.getElementById("registerForm").reset();
+      console.log(email, password);
+      const notyf = new Notyf();
+      notyf.success("Đăng ký thành công! Vui lòng đăng nhập.");
+      setTimeout(() => {
+        document.getElementById("login-tab").click();
+        document.getElementById("registerForm").reset();
+      }, 500);
     }
   });

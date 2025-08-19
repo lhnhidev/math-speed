@@ -3,6 +3,10 @@ const observer = new MutationObserver(() => {
   if (questionElements.length) {
     questionElements.forEach((el) => {
       el.addEventListener("click", () => {
+        console.log(localStorage.getItem("submit"));
+        if (localStorage.getItem("submit") === "true") {
+          return;
+        }
         document
           .querySelector(`#id${el.getAttribute("question")}`)
           .classList.add("bg-[var(--primary-color)]", "text-white");

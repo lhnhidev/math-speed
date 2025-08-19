@@ -29,9 +29,9 @@
   <body>
     <div class="w-full">
       <div
-        class="container mx-auto max-w-6xl shadow-md grid grid-cols-6 justify-between gap-10 px-5 py-10"
+        class="container mx-auto max-w-6xl shadow-md grid grid-cols-6 justify-between px-5 py-10"
       >
-        <div class="col-span-4 px-3">
+        <div class="sm:col-span-4 col-span-6 sm:pr-10 pr-[unset]">
           <div class="mb-4">
             <h2
               class="text-center font-bold text-2xl uppercase"
@@ -42,7 +42,22 @@
           <div class="space-y-10" id="questions"></div>
         </div>
 
-        <div class="col-span-2 w-[352px] fixed right-[200px]">
+        <div class="text-white fixed bottom-4 right-3 flex gap-4">
+          <button
+            id="back2"
+            class="bg-[var(--primary-color)] shadow-md rounded-md px-5 py-2 hover:bg-[var(--thir-color)] transition-all"
+          >
+            Trở lại
+          </button>
+          <button
+            id="submit2"
+            class="bg-[var(--primary-color)] shadow-md rounded-md px-5 py-2 hover:bg-[var(--thir-color)] transition-all"
+          >
+            Nộp bài
+          </button>
+        </div>
+
+        <div class="col-span-2 w-full hidden sm:block">
           <div class="mb-4">
             <h2 class="font-bold text-2xl">Điều hướng nhanh</h2>
             <hr class="mt-3" />
@@ -124,6 +139,10 @@
       </div>
     </div>
   </body>
+  <script>
+    localStorage.setItem("submit", false);
+  </script>
+
   <script
     type="module"
     src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/progress-bar/progress-bar.js"

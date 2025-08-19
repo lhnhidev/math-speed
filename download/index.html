@@ -160,7 +160,7 @@
     >
       <div class="w-full flex justify-center gap-8">
         <div
-          class="animate__animated opacity-0 ob_slideInRight flex items-center justify-center w-40 h-40 border rounded-2xl border-slate-500 px-4 shadow-md bg-gray-100"
+          class="sm:flex hidden animate__animated opacity-0 ob_slideInRight items-center justify-center w-40 h-40 border rounded-2xl border-slate-500 px-4 shadow-md bg-gray-100"
         >
           <img
             class="w-full"
@@ -180,31 +180,43 @@
 
       <div class="mt-8">
         <h2
-          class="text-3xl text-[var(--primary-color)] font-bold uppercase"
+          class="sm:text-3xl text-lg text-[var(--primary-color)] font-bold uppercase"
           style="word-spacing: 6px"
           id="titleDownload"
         ></h2>
       </div>
 
       <table
-        class="mt-8 shadow-md w-1/2 bg-white rounded-lg overflow-hidden animate__animated opacity-0 ob_fadeInUp"
+        class="mt-8 shadow-md md:w-[700px] sm:w-[400px] w-[320px] sm:text-base text-[12px] bg-white rounded-lg overflow-hidden animate__animated opacity-0 ob_fadeInUp"
       >
         <thead class="bg-[var(--primary-color)] text-white">
           <tr>
-            <th class="py-3 px-4 text-left">Phiên bản</th>
-            <th class="py-3 px-4 text-left">Ngày phát hành</th>
-            <th class="py-3 px-4 text-left">Tên app</th>
-            <th class="py-3 px-4 text-left">Hệ điều hành</th>
-            <th class="py-3 px-4 text-left">Tải về</th>
+            <th class="py-3 px-2 sm:px-4 md:text-left text-center">
+              Phiên bản
+            </th>
+            <th class="py-3 px-2 sm:px-4 md:text-left text-center">
+              Ngày phát hành
+            </th>
+            <th
+              class="py-3 px-2 sm:px-4 sm:block hidden md:text-left text-center"
+            >
+              Tên app
+            </th>
+            <th class="py-3 px-2 sm:px-4 md:text-left text-center">
+              Hệ điều hành
+            </th>
+            <th class="py-3 px-2 sm:px-4 md:text-left text-center">Tải về</th>
           </tr>
         </thead>
         <tbody class="divide-y divide-gray-200">
           <tr>
-            <td class="py-3 px-4">1.0.1</td>
-            <td class="py-3 px-4 font-medium text-green-600">16/05/2025</td>
-            <td class="py-3 px-4">MathSpeed</td>
-            <td class="py-3 px-4">Android</td>
-            <td class="py-3 px-4">
+            <td class="py-3 px-2 sm:px-4">1.0.1</td>
+            <td class="py-3 px-2 sm:px-4 font-medium text-green-600">
+              16/05/2025
+            </td>
+            <td class="py-3 px-2 sm:px-4 sm:block hidden">MathSpeed</td>
+            <td class="py-3 px-2 sm:px-4">Android</td>
+            <td class="py-3 px-2 sm:px-4">
               <a
                 href="../app-versions/mathspeed-2025-1.apk"
                 class="py-1 px-3 rounded-md bg-[var(--primary-color)] hover:bg-[var(--thir-color)] transition-all text-white"

@@ -37,7 +37,7 @@ const quesEle = ques
         </h2>
         <div tar="id${
           index + 1
-        }" class="fl text-gray-600 cursor-pointer flex items-center justify-end w-32 underline">
+        }" class="fl text-gray-600 cursor-pointer sm:flex hidden items-center justify-end w-32 underline">
         Đặt cờ 
         <i class="ml-1 fa-solid fa-flag"></i>
       </div>
