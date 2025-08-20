@@ -1,27 +1,50 @@
 import { units as unitsOrigin } from "./setData.js";
+import { GET_CAU_HOI, GET_USER } from "../api.js";
+
 const units = JSON.parse(localStorage.getItem("units")) || unitsOrigin;
-
-console.log(units);
-
 const unitEl = document.querySelector("#units");
 
-export const nextLevel = (a, b) => {
-  console.log(a, b);
-  const unit = a - 1; // 0
-  const level = b - 1; // 2
-  if (level === units[unit].levels.length) {
-    units[unit + 1].levels[0].state = "unlock";
-  } else {
-    units[unit].levels[level].state = "unlock";
+const main = async () => {
+  const token = localStorage.getItem("token");
+
+  let infoUser = JSON.parse(sessionStorage.getItem("infoUser")) || {
+    email: "",
+    password: "",
+    quyen: "user",
+    tienDo: {
+      capDo: "1",
+      level: 1,
+    },
+  };
+
+  sessionStorage.setItem("infoUser", JSON.stringify(infoUser));
+
+  if (token) {
+    infoUser = await fetch(`${GET_USER}${token}`)
+      .then((res) => res.json())
+      .catch((err) => console.error(err));
   }
 
-  localStorage.setItem("units", JSON.stringify(units));
-  console.log(units);
-};
+  const data = await fetch(GET_CAU_HOI)
+    .then((res) => res.json())
+    .catch((err) => console.error(err));
 
-const htmlUnitEl = units
-  .map((unit, index) => {
-    return `
+  // console.log(infoUser);
+  // console.log(data);
+
+  const htmlUnitEl = data
+    .map((unit, index) => {
+      const levels = unit.level.map((item) => item.chuDe.level);
+
+      const obj = {};
+      for (let lvl of levels) {
+        obj[lvl] = true;
+      }
+
+      const uniqueLevels = Object.keys(obj);
+      const count = Object.keys(uniqueLevels).length;
+
+      return `
     <div class="flex flex-col items-center relative">
             <div
               class="animate__animated opacity-0 ob_fadeInLeft relative z-0 shadow-lg rounded-xl p-4 bg-[var(--primary-color)] text-white md:w-[560px] sm:w-[400px] w-[300px] flex justify-between items-center gap-10"
@@ -31,12 +54,12 @@ const htmlUnitEl = units
                   class="flex gap-2 items-center text-xl font-bold opacity-90"
                 >
                   <i class="fa-solid fa-book" class=""></i>
-                  Chủ đề ${unit.id}
+                  Chủ đề ${index + 1}
                 </div>
-                <div class="mt-2">${unit.name}</div>
+                <div class="mt-2">${unit.tenChuDe}</div>
               </div>
               <a
-                href="./theory.html?unit=${unit.id}"
+                href="./theory.html?unit=${index + 1}"
                 class="relative h-12 w-36 rounded-lg flex justify-center items-center gap-2 border-2 border-[var(--thir-color)] px-3 hover:scale-105 transition-all cursor-pointer"
               >
                 <i class="fa-solid fa-chalkboard-teacher"></i>
@@ -45,24 +68,34 @@ const htmlUnitEl = units
             </div>
 
             <div class="py-10 relative">
-              ${unit.levels
-                .map((level, indexLevel) => {
+              ${uniqueLevels
+                .map((lev, indexLevel) => {
                   return `
                     ${
                       indexLevel % 2 === 0
                         ? `
                           <div class="w-20 ml-[-32px]">
-                            <a href="./test/index.html?unit=${unit.id}&level=${
-                            indexLevel + 1
-                          }" ${
-                            level.state === "lock"
+                            <a href="./test/index.html?unit=${
+                              index + 1
+                            }&level=${indexLevel + 1}" ${
+                            !(parseInt(infoUser.tienDo.capDo, 10) >= index + 1)
+                              ? // lev.state === "lock"
+                                'style="pointer-events: none;"'
+                              : parseInt(infoUser.tienDo.capDo, 10) ==
+                                  index + 1 &&
+                                infoUser.tienDo.level < indexLevel + 1
                               ? 'style="pointer-events: none;"'
                               : ""
                           }>
                               <img
                                 class="w-full animate__animated opacity-0 ob_zoomIn"
                                 src="../public/assets/img/${
-                                  level.state === "unlock"
+                                  parseInt(infoUser.tienDo.capDo, 10) >
+                                  index + 1
+                                    ? "star.png"
+                                    : infoUser.tienDo.level >= indexLevel + 1 &&
+                                      parseInt(infoUser.tienDo.capDo, 10) ===
+                                        index + 1
                                     ? "star.png"
                                     : "black_star.png"
                                 }"
@@ -71,7 +104,7 @@ const htmlUnitEl = units
                             </a>
                           </div>
                           ${
-                            indexLevel + 1 != unit.levels.length
+                            indexLevel + 1 != uniqueLevels.length
                               ? `
                             <div class="w-32 rotate-12">
                               <img
@@ -86,17 +119,27 @@ const htmlUnitEl = units
                         `
                         : `
                           <div class="w-20 ml-[32px]">
-                            <a href="./test/index.html?unit=${unit.id}&level=${
-                            indexLevel + 1
-                          }" ${
-                            level.state === "lock"
+                            <a href="./test/index.html?unit=${
+                              index + 1
+                            }&level=${indexLevel + 1}" ${
+                            !(parseInt(infoUser.tienDo.capDo, 10) >= index + 1)
+                              ? // lev.state === "lock"
+                                'style="pointer-events: none;"'
+                              : parseInt(infoUser.tienDo.capDo, 10) ==
+                                  index + 1 &&
+                                infoUser.tienDo.level < indexLevel + 1
                               ? 'style="pointer-events: none;"'
                               : ""
                           }>
                               <img
                                 class="w-full animate__animated opacity-0 ob_zoomIn"
                                 src="../public/assets/img/${
-                                  level.state === "unlock"
+                                  parseInt(infoUser.tienDo.capDo, 10) >
+                                  index + 1
+                                    ? "star.png"
+                                    : infoUser.tienDo.level >= indexLevel + 1 &&
+                                      parseInt(infoUser.tienDo.capDo, 10) ===
+                                        index + 1
                                     ? "star.png"
                                     : "black_star.png"
                                 }"
@@ -105,13 +148,21 @@ const htmlUnitEl = units
                             </a>
                           </div>
                           ${
-                            indexLevel + 1 != unit.levels.length
+                            indexLevel + 1 != uniqueLevels.length
                               ? `
                               <div class="w-32 -scale-x-100 ml-[-30px] rotate-[-5deg]">
                                 <a href="./test/index.html?unit=${
-                                  unit.id
-                                }&level=${indexLevel + 1}"${
-                                  level.state === "lock"
+                                  index + 1
+                                }&level=${indexLevel + 1}" ${
+                                  !(
+                                    parseInt(infoUser.tienDo.capDo, 10) >=
+                                    index + 1
+                                  )
+                                    ? // lev.state === "lock"
+                                      'style="pointer-events: none;"'
+                                    : parseInt(infoUser.tienDo.capDo, 10) ==
+                                        index + 1 &&
+                                      infoUser.tienDo.level < indexLevel + 1
                                     ? 'style="pointer-events: none;"'
                                     : ""
                                 }>
@@ -144,7 +195,29 @@ const htmlUnitEl = units
             </div>
           </div>
   `;
-  })
-  .join("");
+    })
+    .join("");
 
-if (unitEl) unitEl.innerHTML = htmlUnitEl;
+  if (unitEl) unitEl.innerHTML = htmlUnitEl;
+};
+
+main();
+
+// const isLogin = localStorage.getItem("token");
+// if (isLogin) {
+//   main();
+// } else {
+// }
+
+export const nextLevel = (a, b) => {
+  const unit = a - 1; // 0
+  const level = b - 1; // 2
+  if (level === units[unit].levels.length) {
+    units[unit + 1].levels[0].state = "unlock";
+  } else {
+    units[unit].levels[level].state = "unlock";
+  }
+
+  localStorage.setItem("units", JSON.stringify(units));
+  console.log(units);
+};
